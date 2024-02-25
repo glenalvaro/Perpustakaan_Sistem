@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Detail Buku</title>
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&amp;display=swap" rel="stylesheet" />
+  <link rel="icon" href="../assets/images/icon/favicon.png">
+  <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript">
+      google.books.load();
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        var index = document.URL.indexOf('?');
+        if (index > 0) {
+            var bookIsbn = document.URL.substring(index, document.URL.length).split("=")[1]
+            console.log(bookIsbn);
+        }
+        viewer.load('ISBN:'+bookIsbn);
+      }
+      google.books.setOnLoadCallback(initialize);
+    </script>    
+</head>
+<style>
+	.card{
+		border-radius: 10px;
+	}
+
+	.colom{
+		margin-top: 10px;
+		
+	}
+
+	.card-title{
+		color: #007bff9c;
+    	text-decoration: none;
+	}
+
+	.card-text{
+		color: #142b72;
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.btn-log{
+		margin-top: 30px;
+		margin-bottom: 30px;
+		padding: 8px;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 500;
+		border-radius: 20px;
+	}
+
+	.img-fluid{
+		width: 200px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.text-top{
+		color: #fff;
+		float: left;
+	}
+
+	.text-top h4{
+		font-size: 15px;
+	}
+</style>
+<body class="tx-rubik">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary mg-b-40">
+	<div class="container">
+     <a class="text-top navbar-brand" href="">
+	    <h4 style="font-size: 13px;" class="tx-gray-300">Perpustakaan <br> SMK Negeri 3 Tondano</h4>
+	  </a>
+    <button class="navbar-toggler hidden-sm hidden-xs hidden-md" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline">
+        <button class="btn btn-outline-light btn-sm mr-3"><img src="../assets/images/icon/icon_help.svg"> Bantuan</button>
+        <button class="btn btn-outline-light btn-sm"><img src="../assets/images/icon/icon_info.svg"> Hubungi Petugas</button>
+      </form>
+    </div>
+</div>
+</nav>
+
+ <div class="container mg-b-50">
+      <div class="text-center" id="viewerCanvas" style="height: 700px; padding-top: 5px;"></div>
+  </div>
+
+</body>
+</html>
